@@ -6,6 +6,8 @@ import useAuth from "../hooks/useAuth"
 
 const CardGarment = ({prenda}) => {
   const [favorite,setFavorite] = useState(false)
+  const [cImage,setCImage] = useState(true)
+  
   const {setPrenda,agregarFavorito,removerFavorito,favoritos} = useApp()
   const {auth} = useAuth()
 
@@ -27,7 +29,8 @@ const CardGarment = ({prenda}) => {
   return (
     <div className="rounded-md w-60 bg-gray-50 shadow p-2">
         <Link onClick={()=>setPrenda(prenda)} href={`/catalogo/prenda?id=${prenda._id}`} className="flex items-center justify-center mb-2 bg-white">
-            <Image className=" w-auto h-auto" src={`${prenda.dir}`} width={200} height={400} quality={50} alt="t-shirt" />
+            {cImage ? ( <ImageLoading/>): null}
+            <Image onLoad={()=> setCImage(false)} className=" w-auto h-auto" src={`${prenda.dir}`} width={200} height={400} quality={50} alt="t-shirt" />
         </Link>
         <div className="flex">
             <div className=" w-11/12">

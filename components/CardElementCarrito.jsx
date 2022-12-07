@@ -4,8 +4,10 @@ import { useEffect, useState } from "react"
 import useApp from "../hooks/useApp"
 
 const CardElementCarrito = ({prenda}) => {
-    const {carrito,setPrenda,removerDelCarrito,agregarAlCarrito} = useApp()
-    const [cantidad,setCantidad] = useState(0)
+  const [cantidad,setCantidad] = useState(0)
+  const [cImage,setCImage] = useState(true)
+  
+  const {carrito,setPrenda,removerDelCarrito,agregarAlCarrito} = useApp()
     useEffect(()=>{
       if(carrito.length && carrito.some(element => element._id === prenda._id)){
         const elemento = carrito.find(element => element._id === prenda._id)
@@ -21,7 +23,8 @@ const CardElementCarrito = ({prenda}) => {
   return (
     <div className="rounded-md w-full md:w-96 bg-gray-50 flex gap-2 shadow p-2">
     <Link onClick={()=>setPrenda(prenda)} href={`/catalogo/prenda?id=${prenda._id}`} className="flex items-center justify-center mb-2 bg-white w-1/3 ">
-        <Image className=" w-auto h-auto" src={`${prenda.dir}`} width={100} height={100} quality={50} alt="t-shirt" />
+      {cImage ? ( <ImageLoading/>): null}
+      <Image onLoad={()=> setCImage(false)} className=" w-auto h-auto" src={`${prenda.dir}`} width={100} height={100} quality={50} alt="t-shirt" />
     </Link>
     <div className="w-2/3">
             <p className="font-bold">{prenda.nombre}</p>
