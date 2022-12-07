@@ -73,7 +73,7 @@ const EditarArticulo = ({clothe}) => {
         if(token){
             try {
                 const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/clothes/actualizar/${clothe._id}`
-                fetch(url,config).then(res => res.json()).then(dat => console.log(dat))
+                fetch(url,config)
                 setAlerta({mensaje:"Prenda Actualizada Correctamente, Redireccionando...",error:false})
                 setNombre("")
                 setCategoria("")

@@ -60,7 +60,7 @@ const AppProvider = ({children}) => {
     if(token){
         try {
             const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/usuarios/favoritos/${elemento._id}/${auth._id}`
-            fetch(url,config).then(res => res.json()).then(dat => console.log(dat))
+            await fetch(url,config).then(res => res.json()).then(dat => console.log(dat))
         } catch (error) {
             console.log(error)
         }
@@ -83,7 +83,7 @@ const AppProvider = ({children}) => {
       if(token){
           try {
               const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/usuarios/remover-favoritos/${elemento._id}/${auth._id}`
-              fetch(url,config).then(res => res.json()).then(dat => console.log(dat))
+              await fetch(url,config).then(res => res.json()).then(dat => console.log(dat))
           } catch (error) {
               console.log(error)
           }
@@ -150,8 +150,9 @@ const AppProvider = ({children}) => {
       if(token){
           try {
               const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/usuarios/obtener-favoritos`
-              fetch(url,config).then(res => res.json()).then(dat => setFavoritos(dat))
+              await fetch(url,config).then(res => res.json()).then(dat => setFavoritos(dat))
             } catch (error) {
+              console.log("error aqui")
               console.log(error)
             }
           }

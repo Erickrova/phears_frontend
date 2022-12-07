@@ -45,7 +45,7 @@ const Login = () => {
         onSubmit={handleSubmit}
         className="md:w-2/3 mx-auto p-4 mt-10 rounded-md shadow-xl">
             <legend className="text-center text-2xl font-bold">Inicia Sesión</legend>
-        
+            
             <div className="py-2">
                 <label className="w-full text-xl font-medium" htmlFor="email">Email</label>
                 <input
