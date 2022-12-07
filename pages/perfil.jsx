@@ -5,7 +5,7 @@ import useAuth from '../hooks/useAuth'
 import {useRouter} from "next/router"
 
 
-const perfil = () => {
+const Perfil = () => {
     const {auth,cerrarSesionAuth} = useAuth()
     const {cerrarSesionApp} = useApp()
     const router = useRouter()
@@ -34,4 +34,4 @@ const perfil = () => {
   )
 }
 
-export default perfil
+export default Perfil
