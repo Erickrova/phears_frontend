@@ -1,12 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import ImageLoading from "../../components/ImageLoading";
 import useApp from "../hooks/useApp"
 
 const CardElementCarrito = ({prenda}) => {
   const [cantidad,setCantidad] = useState(0)
   const [cImage,setCImage] = useState(true)
-  
+
   const {carrito,setPrenda,removerDelCarrito,agregarAlCarrito} = useApp()
     useEffect(()=>{
       if(carrito.length && carrito.some(element => element._id === prenda._id)){

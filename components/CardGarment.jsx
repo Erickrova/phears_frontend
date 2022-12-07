@@ -1,13 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import ImageLoading from "../../components/ImageLoading";
 import useApp from "../hooks/useApp"
 import useAuth from "../hooks/useAuth"
 
 const CardGarment = ({prenda}) => {
   const [favorite,setFavorite] = useState(false)
   const [cImage,setCImage] = useState(true)
-  
+
   const {setPrenda,agregarFavorito,removerFavorito,favoritos} = useApp()
   const {auth} = useAuth()
 

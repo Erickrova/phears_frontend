@@ -3,6 +3,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import useApp from "../../hooks/useApp"
 import useAuth from "../../hooks/useAuth"
+import ImageLoading from "../../components/ImageLoading";
 
 const CardGarmentAdmin = ({prenda}) => {
   const [favorite,setFavorite] = useState(false)
