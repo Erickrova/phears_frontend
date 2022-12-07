@@ -8,7 +8,11 @@ function MyApp({ Component, pageProps }) {
     <AuthProvider>
       <AppProvider>
         <Component {...pageProps} />
-        <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+        <script
+            async
+            src="https://widget.cloudinary.com/v2.0/global/all.js"
+            type="text/javascript"
+          ></script>
       </AppProvider>
     </AuthProvider>
   )
