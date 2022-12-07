@@ -1,8 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import ImageLoading from "../../components/ImageLoading";
 import useApp from "../hooks/useApp"
+import ImageLoading from "./ImageLoading"
 
 const CardElementCarrito = ({prenda}) => {
   const [cantidad,setCantidad] = useState(0)
@@ -24,7 +24,7 @@ const CardElementCarrito = ({prenda}) => {
   return (
     <div className="rounded-md w-full md:w-96 bg-gray-50 flex gap-2 shadow p-2">
     <Link onClick={()=>setPrenda(prenda)} href={`/catalogo/prenda?id=${prenda._id}`} className="flex items-center justify-center mb-2 bg-white w-1/3 ">
-      {cImage ? ( <ImageLoading/>): null}
+      {cImage ? ( <ImageLoading />): null}
       <Image onLoad={()=> setCImage(false)} className=" w-auto h-auto" src={`${prenda.dir}`} width={100} height={100} quality={50} alt="t-shirt" />
     </Link>
     <div className="w-2/3">

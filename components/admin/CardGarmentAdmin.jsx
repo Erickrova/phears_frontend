@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import useApp from "../../hooks/useApp"
 import useAuth from "../../hooks/useAuth"
-import ImageLoading from "../../components/ImageLoading";
+import ImageLoading from "../ImageLoading"
 
 const CardGarmentAdmin = ({prenda}) => {
   const [favorite,setFavorite] = useState(false)
@@ -51,7 +51,7 @@ const CardGarmentAdmin = ({prenda}) => {
   return (
     <div className="rounded-md w-60 bg-gray-50 shadow p-2">
         <Link onClick={()=>setPrenda(prenda)} href={`/catalogo/prenda?id=${prenda._id}`} className="flex items-center justify-center mb-2 bg-white">
-          {cImage ? ( <ImageLoading/>): null}
+          {cImage ? ( <ImageLoading />): null}
           <Image onLoad={()=> setCImage(false)} className=" w-auto h-auto" src={`${prenda.dir}`} width={200} height={400} quality={50} alt="t-shirt" />
         </Link>
         <div className="flex">
